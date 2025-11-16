@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center mt-5">
+  <div class="card shadow p-5">
+    <h2 class="text-success mb-3">Booking Confirmed!</h2>
+    <p>Your reservation has been successfully placed.</p>
+    <a href="{% url 'user_dashboard' %}" class="btn btn-warning mt-3">Go to Dashboard</a>
+  </div>
+</div>
+{% endblock %}

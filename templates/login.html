@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .login-container {
+    width: 400px;
+    margin: 80px auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .login-container:hover {
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  .login-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  .form-control {
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+  .btn-primary {
+    background: #0078d7;
+    border: none;
+    border-radius: 12px;
+    padding: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  .btn-primary:hover {
+    background: #005fa3;
+    transform: scale(1.03);
+  }
+  .login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .login-footer a {
+    text-decoration: none;
+    color: #0078d7;
+    font-weight: 500;
+  }
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+<div class="login-container">
+  <h2 class="login-title">Welcome Back</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+  <div class="login-footer">
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+  </div>
+</div>
+{% endblock %}

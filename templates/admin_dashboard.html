@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5 text-center">
+  <h2 class="text-primary">Welcome, Admin</h2>
+  <p>Manage bookings, rooms, and records seamlessly.</p>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card shadow p-3">
+        <h5>Room Categories</h5>
+        <a href="{% url 'manage_categories' %}" class="btn btn-warning mt-2">Add Categories</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow p-3">
+        <h5>Rooms</h5>
+        <a href="{% url 'manage_rooms' %}" class="btn btn-warning mt-2">Add Rooms</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow p-3">
+        <h5>Special Rates</h5>
+        <a href="{% url 'manage_rates' %}" class="btn btn-warning mt-2">Add Special Rate</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

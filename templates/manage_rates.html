@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'admin_dashboard' %}" class="btn btn-info">← Back to Dashboard</a>
+<div class="container mt-5">
+  <h3>Manage Special Rates</h3>
+  <form method="POST" class="card p-3 shadow mb-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Add Rate</button>
+  </form>
+  <h4>Existing Special Rates</h4>
+  <table class="table table-striped">
+    <tr>
+      <th>Category</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Rate Multiplier</th>
+    </tr>
+    {% for rate in rates %}
+      <tr>
+        <td>{{ rate.room_category.name }}</td>
+        <td>{{ rate.start_date }}</td>
+        <td>{{ rate.end_date }}</td>
+        <td>{{ rate.rate_multiplier }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="4" class="text-muted">No special rates defined yet.</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

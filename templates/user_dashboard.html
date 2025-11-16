@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+<h2 class="fw-bold text-primary">Welcome, {{ user.username }}</h2>
+  <div class="card shadow p-4 mb-4">
+    <h4 class="mb-3 text-primary">Check Room Availability</h4>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-4">{{ form.category.label_tag }} {{ form.category }}</div>
+        <div class="col-md-3">{{ form.start_date.label_tag }} {{ form.start_date }}</div>
+        <div class="col-md-3">{{ form.end_date.label_tag }} {{ form.end_date }}</div>
+        <div class="col-md-2 mt-4">
+          <button type="submit" class="btn btn-primary w-100">Check</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  {% if available_rooms != None %}
+  <div class="card shadow p-4 mb-4">
+    <h4 class="mb-3 text-success">Available Rooms</h4>
+    {% if available_rooms %}
+      <div class="row">
+        {% for room in available_rooms %}
+          <div class="col-md-4 mb-3">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h5 class="text-primary">Room {{ room.room_number }}</h5>
+                <p><strong>Category:</strong> {{ room.category.name }}</p>
+                <p><strong>Base Price:</strong> ₹{{ room.category.base_price }}</p>
+                <a href="{% url 'confirm_booking' room.id start_date end_date %}" class="btn btn-success w-100 mt-2">Book Now</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-danger">No rooms available for this category and date range.</p>
+    {% endif %}
+  </div>
+{% endif %}
+
+  {% if reservations %}
+    <div class="card shadow p-4 mt-4">
+      <h4 class="mb-3 text-primary">Your Reservations</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Room</th>
+            <th>Category</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Total Price (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in reservations %}
+            <tr>
+              <td>{{ r.room.room_number }}</td>
+              <td>{{ r.room.category.name }}</td>
+              <td>{{ r.start_date }}</td>
+              <td>{{ r.end_date }}</td>
+              <td>{{ r.total_price }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="text-muted text-center mt-4">You have no bookings yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

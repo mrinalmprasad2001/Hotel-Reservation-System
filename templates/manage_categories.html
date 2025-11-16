@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'admin_dashboard' %}" class="btn btn-info">← Back to Dashboard</a>
+<div class="container mt-5">
+  <h3>Manage Room Categories</h3>
+  <form method="POST" class="card p-3 shadow mb-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Add Category</button>
+  </form>
+  <h4>Existing Categories</h4>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Base Price</th>
+    </tr>
+    {% for cat in categories %}
+      <tr>
+        <td>{{ cat.name }}</td>
+        <td>{{ cat.base_price }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="2" class="text-muted">No categories yet.</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

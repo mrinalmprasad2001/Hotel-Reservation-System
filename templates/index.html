@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  h1 {
+  color: #320A6B;
+  }
+</style>
+<img src="{% static 'banner_home.jpg' %}" class="card-img-top">
+<div class="text-center my-5">
+  <h1 class="fw-bold">Welcome to Tivagi</h1>
+  <p class="mt-3">
+    "Step into comfort and elegance enjoy spacious rooms, top-notch facilities, and exquisite dining that makes every stay unforgettable."
+  </p>
+</div>
+<div class="row mt-5">
+  <div class="text-center my-5">
+  <h1 class="fw-bold">Our Services</h1>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow">
+      <img src="{% static 'wifi_247.jpg' %}" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="card-title">WiFi Connection</h5>
+        <p>High Speed 5G Connections.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow">
+      <img src="{% static 'facilities.png' %}" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="card-title">Premium Facilities</h5>
+        <p>Enjoy pools, gyms, and fine dining.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow">
+      <img src="{% static 'reservation.png' %}" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="card-title">24/7 Support</h5>
+        <p>Always at your service, making every stay perfect.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center my-5">
+  <h1 class="fw-bold">About Us</h1>
+  <p class="mt-3">
+    Welcome to Tivagi, where comfort meets elegance and hospitality feels like home.
+    We take pride in offering more than just a stay we create an experience you’ll remember.
+    Our beautifully designed rooms offer the perfect blend of luxury and relaxation, ensuring every guest feels refreshed and at ease. From modern amenities and seamless facilities to exquisite dining crafted by our skilled chefs, every detail is designed to make your stay exceptional.
+    Whether you’re here for business, leisure, or celebration, our dedicated team is committed to providing personalized service and warm hospitality making every moment truly special.
+  </p>
+</div>
+<div class="text-center my-5">
+  <h1 class="fw-bold">Our Rooms</h1>
+</div>
+<div class="container my-5">
+  <div class="row g-4">
+    <div class="col-md-3">
+      <div class="card h-80">
+        <img src="{% static 'deluxe.jpg' %}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title">Deluxe Room</h5>
+          <p class="card-text">Spacious room with modern amenities and city view.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-80">
+        <img src="{% static 'luxury.jpg' %}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title">Luxury Suite</h5>
+          <p class="card-text">Luxury suite with separate living area and premium facilities.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100">
+        <img src="{% static 'standard.jpg' %}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title">Standard Room</h5>
+          <p class="card-text">Comfortable room with all essential amenities.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100">
+        <img src="{% static 'family.jpg' %}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title">Family Room</h5>
+          <p class="card-text">Spacious room perfect for families, with extra beds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center my-5">
+  <h1 class="fw-bold">Our Mission</h1>
+  <p class="mt-3">
+    To provide every guest with an exceptional stay by combining comfort, elegance, and warm hospitality.
+    We aim to create memorable experiences through our thoughtfully designed rooms, world-class facilities, and delicious culinary offerings all delivered with genuine care and personalized service.
+  </p>
+</div>
+<div class="text-center my-5">
+  <h1 class="fw-bold">Our Vision</h1>
+  <p class="mt-3">
+    To be recognized as a leading destination for comfort and hospitality, where every guest feels valued, inspired, and at home.
+    We strive to set new standards in quality, service, and sustainability making Tivagi a place guests love to return to, time and again.
+  </p>
+</div>
+{% endblock %}

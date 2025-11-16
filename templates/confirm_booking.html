@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h3 class="text-center text-primary mb-3">Confirm Your Booking</h3>
+    <p><strong>Customer Name:</strong> {{ user.username }}</p>
+    <p><strong>Room Number:</strong> {{ room.room_number }}</p>
+    <p><strong>Category:</strong> {{ room.category.name }}</p>
+    <p><strong>Check-in:</strong> {{ start_date }}</p>
+    <p><strong>Check-out:</strong> {{ end_date }}</p>
+    <p><strong>Total Price:</strong> ₹{{ total_price }}</p>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success btn-lg">Confirm Booking</button>
+        <a href="{% url 'user_dashboard' %}" class="btn btn-danger btn-lg ms-3">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
